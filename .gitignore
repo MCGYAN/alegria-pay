@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+software/node_modules/
+
+# Builds
+software/dist/
+dist/
+dist-ssr/
+
+# Logs / local
+*.log
+npm-debug.log*
+*.local
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python cache
+__pycache__/
+*.pyc

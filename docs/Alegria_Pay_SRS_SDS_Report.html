@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alegria Pay SRS and SDS Report</title>
+<meta name="description" content="Software Requirements Specification and Software Design Specification Report for Alegria Pay, WUCS305/WICT405, West End University College">
+<style>
+  @page {
+    size: A4;
+    margin: 2.5cm 2cm 2.5cm 2cm;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.2cm 1.8cm;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Times New Roman", Calibri, serif;
+    color: #000000;
+    line-height: 1.3;
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    page-break-after: avoid;
+  }
+
+  h1 { font-size: 16pt; text-align: center; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 12.5pt; }
+  h4 { font-size: 12pt; font-style: italic; }
+
+  p { margin: 0 0 0.9em 0; text-align: justify; }
+
+  a { color: #000000; text-decoration: underline; }
+
+  ul, ol { margin: 0 0 1em 0; padding-left: 1.5em; }
+  li { margin-bottom: 0.3em; text-align: justify; }
+
+  strong { font-weight: bold; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.6em 0 1.3em 0;
+    font-size: 11pt;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #000000;
+    padding: 5px 8px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  th {
+    background: #e8e8e8;
+    color: #000000;
+    font-weight: bold;
+  }
+
+  .titlepage {
+    text-align: center;
+    margin: 0 auto 2em auto;
+    padding-top: 1.5cm;
+  }
+
+  .titlepage p {
+    text-align: center;
+    margin: 0.4em 0;
+  }
+
+  .titlepage .main-title {
+    font-size: 15pt;
+    font-weight: bold;
+    margin-top: 1em;
+  }
+
+  .titlepage .sub-title {
+    font-size: 13pt;
+    margin-bottom: 1em;
+  }
+
+  .toc {
+    margin: 1em 0 2em 0;
+  }
+
+  .toc p {
+    text-align: left;
+    margin: 0.2em 0;
+  }
+
+  .toc .indent {
+    padding-left: 1.5em;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 1.5em 0;
+  }
+
+  .pagebreak {
+    page-break-before: always;
+  }
+
+  .note {
+    margin: 0 0 0.9em 0;
+    text-align: justify;
+  }
+</style>
+</head>
+<body>
+
+<div class="titlepage">
+  <p>WEST END UNIVERSITY COLLEGE</p>
+  <p>Faculty of Computer Studies</p>
+  <p class="main-title">ALEGRIA PAY: BANKING AND FINANCIAL TRANSACTIONS MANAGEMENT SYSTEM</p>
+  <p class="sub-title">Software Requirements Specification and Software Design Specification Report</p>
+  <p>Course: WUCS305/WICT405 Software Engineering</p>
+  <p>Case Study 6, December 2026</p>
+  <p>&nbsp;</p>
+  <p>Prepared by:</p>
+  <p>[Student Name 1] ([Student ID 1])</p>
+  <p>[Student Name 2] ([Student ID 2])</p>
+  <p>[Student Name 3] ([Student ID 3])</p>
+  <p>&nbsp;</p>
+  <p>Submitted to: [Lecturer's Name], Faculty of Computer Studies</p>
+  <p>Submission Date: December 2026</p>
+</div>
+
+<hr>
+
+<h2>Table of Contents</h2>
+<div class="toc">
+<p>1. Task 1: Software Requirements Specification (SRS)</p>
+<p class="indent">1.1 Problem Identified</p>
+<p class="indent">1.2 Purpose of the Software</p>
+<p class="indent">1.3 Scope of the Software</p>
+<p class="indent">1.4 Product Functions</p>
+<p class="indent">1.5 Functional Requirements</p>
+<p class="indent">1.6 Design and Implementation Constraints</p>
+<p class="indent">1.7 Assumptions and Dependencies</p>
+<p class="indent">1.8 Non Functional Requirements</p>
+<p>2. Task 2: Software Design Specification (SDS)</p>
+<p class="indent">2.1 Architectural Design and Deployment View</p>
+<p class="indent">2.2 Use Case Model</p>
+<p class="indent">2.3 Sequence Diagrams</p>
+<p class="indent">2.4 Class Diagram</p>
+<p>3. Testing Approach</p>
+<p>4. References</p>
+<p>5. Appendix A: Demo Credentials</p>
+<p>6. Appendix B: Glossary of Terms</p>
+</div>
+
+<hr>
+
+<h1 class="pagebreak">1. Task 1: Software Requirements Specification (SRS)</h1>
+
+<h2>1.1 Problem Identified</h2>
+<p>Many commercial banks operating in Ghana, and in West Africa more generally, still depend in part on fragmented record keeping that was built up over time using different spreadsheets, branch ledgers, and small disconnected desktop programs. For the bank described in Case Study 6, this creates a number of practical problems that the Alegria Pay system is intended to solve.</p>
+<p>First, customer information is scattered. A customer who opens a savings account at the Accra branch but later needs service at the Kumasi branch cannot easily be helped, because the Kumasi branch has no immediate way to see that customer's accounts or balances. This makes it difficult to maintain a single, consistent view of each customer across the whole bank.</p>
+<p>Second, loan tracking is largely manual. Loan applications, approvals, disbursements, and repayments are often recorded in spreadsheets that are not connected to the customer's live account balance. This makes it hard for loan officers to notice early signs of default or to produce an accurate picture of which loans are performing and which are overdue.</p>
+<p>Third, branch and staff performance is difficult to measure. Without one shared transaction and account database, managers cannot easily compare how the Accra, Kumasi, and Tema branches are performing, or which staff members are processing the most transactions. Decisions about staffing and resources therefore tend to be based on impressions rather than actual figures.</p>
+<p>Fourth, moving money between branches is slow and carries more risk than it should. When branch systems do not share a common ledger, transferring funds between accounts held at different branches usually needs phone confirmation, paper vouchers, or an overnight reconciliation step, all of which can introduce delay and error.</p>
+<p>Fifth, producing management and regulatory reports is time consuming and error prone. Reports that the Bank of Ghana or bank management may require, such as loan performance summaries or transaction monitoring, are difficult to compile accurately when the underlying data is spread across several disconnected systems.</p>
+<p>Alegria Pay is proposed as a solution to these problems. It is a single banking and financial transactions management system that gives staff, management, and customers one consistent and auditable view of customer relationships, accounts, transactions, loans, and cards across the Accra, Kumasi, and Tema branches.</p>
+
+<h2>1.2 Purpose of the Software</h2>
+<p>The purpose of Alegria Pay is to provide a secure, centralised, role based software system that supports the core day to day activities of a commercial bank: customer account management, deposit, withdrawal and transfer processing, loan lifecycle management, credit card administration, branch and staff administration, and management reporting, in a way that works consistently across all three branches.</p>
+<p>In particular, Alegria Pay is meant to:</p>
+<ul>
+<li>Replace fragmented, branch isolated records with one logical system of record for customers, accounts, and transactions.</li>
+<li>Give tellers and branch managers the tools needed to process financial transactions accurately and with a complete audit trail.</li>
+<li>Give loan officers and branch managers the tools needed to manage the loan process from application through approval, disbursement, and repayment.</li>
+<li>Give branch managers and administrators the visibility needed to judge branch performance, staff performance, and the health of the loan portfolio.</li>
+<li>Give customers reasonable self service access to their own accounts, balances, transaction history, loans, and cards.</li>
+<li>Demonstrate, for the purposes of this course, good practice in requirements analysis, software design, and implementation of a realistic, non trivial system.</li>
+</ul>
+
+<h2>1.3 Scope of the Software</h2>
+<h3>1.3.1 In Scope</h3>
+<p>The version of Alegria Pay specified and built for this project covers the following:</p>
+<ul>
+<li>Customer registration and profile management, including basic Know Your Customer (KYC) details such as full name, contact details, a national identification reference, residential address, and an assigned home branch.</li>
+<li>Three account types per customer: Savings Account, Current Account, and Fixed Deposit Account, each with its own business rules for interest, minimum balance, and maturity where relevant.</li>
+<li>Core transaction processing: cash deposits, cash withdrawals, intra branch transfers, and inter branch transfers between accounts, with every transaction producing a permanent transaction record.</li>
+<li>Transaction history and account statement retrieval for customers, tellers, and managers.</li>
+<li>Staff record management and branch administration, including assigning staff to branches and roles (Administrator, Branch Manager, Teller).</li>
+<li>Loan management covering loan products, loan applications, the approval or rejection workflow, disbursement into a customer account, and tracking of repayments.</li>
+<li>Credit card issuance against an eligible account, credit limit management, and card status control (active or blocked).</li>
+<li>A consolidated view of each customer's accounts, loans, and cards, so staff can answer questions such as "what products does this customer hold".</li>
+<li>Reporting that supports management and, in a general sense, regulatory needs: account balance summaries, transaction history, loan repayment performance, branch comparisons, and staff performance.</li>
+<li>Role based login and access control for four user roles: Customer, Teller or Staff, Branch Manager, and System Administrator.</li>
+</ul>
+
+<h3>1.3.2 Out of Scope</h3>
+<p>The following items are explicitly not covered by the current version of Alegria Pay:</p>
+<ul>
+<li>Connection to real national payment infrastructure, such as GhIPSS or mobile money platforms, and real card network processing such as live Visa or Mastercard authorisation.</li>
+<li>Direct integration with the Bank of Ghana's reporting systems or with the National Identification Authority's Ghana Card verification service.</li>
+<li>Foreign currency accounts or currency conversion. The system works only in Ghana Cedis (GH&#8373;).</li>
+<li>Insurance products, investment products such as treasury bills or unit trusts, and trade finance instruments such as letters of credit.</li>
+<li>Automated detection of suspicious transactions for anti money laundering purposes. This is noted as a possible future improvement rather than a current feature.</li>
+<li>Physical hardware integration, including ATMs, cheque scanners, fingerprint readers, or point of sale terminals.</li>
+<li>Native mobile applications for iOS or Android. The system is delivered only as a responsive web application.</li>
+<li>A full production deployment with live servers and certified security controls. As explained in Section 1.6, the submitted work is an academic simulation of what a production system would look like.</li>
+</ul>
+
+<h2>1.4 Product Functions</h2>
+<p>At a high level, Alegria Pay provides the following groups of functions:</p>
+<ol>
+<li>Identity and access management: secure login and role based access control for Customers, Tellers, Branch Managers, and Administrators.</li>
+<li>Customer management: creating, searching, viewing, and updating customer profiles, and providing a consolidated view of everything a customer holds with the bank.</li>
+<li>Account management: opening, viewing, and closing or suspending Savings, Current, and Fixed Deposit accounts, enforcing the rules specific to each account type, and generating statements.</li>
+<li>Transaction processing: deposits, withdrawals, intra branch transfers, and inter branch transfers, with balance checks before posting and a permanent record of every transaction.</li>
+<li>Loan management: defining loan products, capturing applications, routing them for manager approval or rejection, disbursing approved loans, and tracking repayments.</li>
+<li>Credit card management: issuing cards linked to an eligible account, setting credit limits, tracking available credit, and blocking or unblocking cards.</li>
+<li>Branch and staff administration: maintaining branch records for Accra, Kumasi, and Tema, and maintaining staff accounts, positions, and branch assignments.</li>
+<li>Reporting and analytics: producing balance reports, transaction reports, loan performance reports, branch comparison reports, and staff performance reports.</li>
+<li>Audit and traceability: recording who performed each transaction, loan decision, or card action, when, and at which branch.</li>
+</ol>
+
+<h2>1.5 Functional Requirements</h2>
+<p>The functional requirements below are grouped by product function and written so that each one can be tested and traced back to a specific feature. Each requirement is identified with the prefix FR.</p>
+
+<h3>A. Authentication and Access Control</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-01</td><td>The system shall authenticate a user by email and password before allowing access to any protected function.</td></tr>
+<tr><td>FR-02</td><td>The system shall support at least four distinct user roles: Customer, Teller or Staff, Branch Manager, and Administrator.</td></tr>
+<tr><td>FR-03</td><td>The system shall restrict each user to only the functions permitted for their role, for example a Customer shall not be able to approve loans or create staff accounts.</td></tr>
+<tr><td>FR-04</td><td>The system shall end a user's session on logout and prevent access to protected pages without an active session.</td></tr>
+</table>
+
+<h3>B. Customer Management</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-05</td><td>The system shall allow an Administrator or Teller to register a new customer by capturing full name, phone number, email, residential address, a national identification reference, and home branch.</td></tr>
+<tr><td>FR-06</td><td>The system shall allow authorised staff to search for a customer by name, customer ID, or phone number and retrieve the matching profile within two seconds under normal conditions with the seeded dataset.</td></tr>
+<tr><td>FR-07</td><td>The system shall allow a Customer to view and update their own contact details, subject to basic validation.</td></tr>
+<tr><td>FR-08</td><td>The system shall present a consolidated relationship view for a customer, showing all of their accounts, loans, and credit cards.</td></tr>
+<tr><td>FR-09</td><td>The system shall prevent the registration of two customers with the same national identification reference.</td></tr>
+</table>
+
+<h3>C. Account Management</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-10</td><td>The system shall allow authorised staff to open a Savings, Current, or Fixed Deposit account for an existing customer, generating a unique account number.</td></tr>
+<tr><td>FR-11</td><td>The system shall apply account type specific rules: Savings accounts shall accrue a configurable interest rate, Current accounts shall accrue no interest by default and shall enforce a minimum balance, and Fixed Deposit accounts shall require a maturity date and a principal amount that remains locked until maturity.</td></tr>
+<tr><td>FR-12</td><td>The system shall allow a Customer or authorised staff member to view the current balance and status (active, dormant, or closed) of an account.</td></tr>
+<tr><td>FR-13</td><td>The system shall allow authorised staff to close or suspend an account, recording the reason and the staff member responsible.</td></tr>
+<tr><td>FR-14</td><td>The system shall generate an account statement listing all transactions for a selected account within a given date range.</td></tr>
+</table>
+
+<h3>D. Transaction Processing</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-15</td><td>The system shall allow a Teller to record a cash deposit into a specified account, increasing the balance by the deposit amount and creating a transaction record.</td></tr>
+<tr><td>FR-16</td><td>The system shall allow a Teller or Customer to withdraw cash from an account, provided the resulting balance does not fall below the account's minimum balance rule.</td></tr>
+<tr><td>FR-17</td><td>The system shall allow a Customer or Teller to transfer funds between two accounts at the same branch, debiting the source account and crediting the destination account as a single operation.</td></tr>
+<tr><td>FR-18</td><td>The system shall allow a Customer or Teller to transfer funds between an account at one branch and an account at a different branch, applying the same validation rules as an intra branch transfer and recording both branches involved.</td></tr>
+<tr><td>FR-19</td><td>The system shall reject any withdrawal or transfer that would take the source account balance below zero or below its defined minimum balance, and shall show a clear error message.</td></tr>
+<tr><td>FR-20</td><td>The system shall assign a unique transaction identifier, timestamp, performing user, and branch to every deposit, withdrawal, and transfer.</td></tr>
+<tr><td>FR-21</td><td>The system shall allow authorised staff to search and filter transaction history by account, date range, transaction type, and branch.</td></tr>
+</table>
+
+<h3>E. Loan Management</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-22</td><td>The system shall allow a Customer or Teller to submit a loan application specifying a loan product, requested principal amount, and repayment term in months.</td></tr>
+<tr><td>FR-23</td><td>The system shall allow a Branch Manager to review a pending loan application and either approve or reject it, recording the decision, decision date, and the manager who made it.</td></tr>
+<tr><td>FR-24</td><td>Once a loan is approved, the system shall allow disbursement of the loan principal into a nominated customer account, creating a matching deposit transaction and an active loan record.</td></tr>
+<tr><td>FR-25</td><td>The system shall generate a repayment schedule for each disbursed loan, based on the principal, interest rate, and term.</td></tr>
+<tr><td>FR-26</td><td>The system shall allow a Teller or Customer to record a loan repayment, updating the outstanding loan balance and the repayment history.</td></tr>
+<tr><td>FR-27</td><td>The system shall mark a loan as overdue when an expected repayment has not been recorded by its due date.</td></tr>
+<tr><td>FR-28</td><td>The system shall not allow disbursement of a loan that has not been approved.</td></tr>
+</table>
+
+<h3>F. Credit Card Management</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-29</td><td>The system shall allow authorised staff to issue a credit card linked to an eligible customer account, with an assigned credit limit.</td></tr>
+<tr><td>FR-30</td><td>The system shall track available credit on each card as transactions are recorded against it, and shall prevent use beyond the assigned limit.</td></tr>
+<tr><td>FR-31</td><td>The system shall allow authorised staff to block, unblock, or close a credit card, recording the reason and the staff member responsible.</td></tr>
+</table>
+
+<h3>G. Branch and Staff Administration</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-32</td><td>The system shall maintain a list of branches (Accra Head Office, Kumasi, and Tema), each with a unique branch code, location, and contact information.</td></tr>
+<tr><td>FR-33</td><td>The system shall allow an Administrator to create staff accounts, assign a role (Teller, Branch Manager, or Administrator), and assign the staff member to a branch.</td></tr>
+<tr><td>FR-34</td><td>The system shall allow an Administrator to deactivate a staff account, immediately removing that user's access.</td></tr>
+</table>
+
+<h3>H. Reporting</h3>
+<table>
+<tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>FR-35</td><td>The system shall generate a customer account balance report showing current balances across all accounts for a selected customer or branch.</td></tr>
+<tr><td>FR-36</td><td>The system shall generate a transaction history report for a selected branch and date range, showing the total value of deposits, withdrawals, and transfers.</td></tr>
+<tr><td>FR-37</td><td>The system shall generate a loan repayment performance report showing, per branch, the proportion of loans that are current, overdue, or fully repaid.</td></tr>
+<tr><td>FR-38</td><td>The system shall generate a branch comparison report showing transaction volume and loan interest income across Accra, Kumasi, and Tema.</td></tr>
+<tr><td>FR-39</td><td>The system shall generate a staff performance report ranking staff by the number and value of transactions processed within a selected period.</td></tr>
+</table>
+
+<h2>1.6 Design and Implementation Constraints</h2>
+<ol>
+<li>Academic simulation. This system is developed as a university end of semester project for WUCS305/WICT405, not as a production banking system. All monetary movements and customer data are simulated using seed data rather than connected to a live core banking database or real customer funds. The architecture is still designed to reflect, and could be extended toward, a genuine production deployment, as explained in Section 2.1.</li>
+<li>Browser based delivery. The front end is built as a responsive web application and is expected to run on current versions of Chrome, Edge, and Firefox. No native mobile application is produced.</li>
+<li>Hardware constraints. The client device needs at least 4 GB of RAM, a modern dual core processor, a screen resolution of at least 1024 by 768, and a working network connection. No specialised banking hardware such as ATMs or card readers is required.</li>
+<li>Software and platform constraints. The front end is built with React and plain CSS and JavaScript, which matches the Web Programming and Object Oriented Programming modules that are prerequisites for this course.</li>
+<li>Currency constraint. All monetary values are shown in Ghana Cedis using the symbol GH&#8373;, with two decimal places for pesewas. No other currency is supported.</li>
+<li>Data constraint. A small but realistic seed dataset is used, covering three branches (Accra, Kumasi, and Tema), a handful of staff and customer users, and a representative set of accounts, transactions, loans, and cards. This is enough to demonstrate every functional requirement without needing a production scale dataset.</li>
+<li>Security constraint. Because this is an academic simulation, login and role based access are implemented to show sound design practice, but should not be treated as certified for handling real customer financial data. Section 1.8.3 lists additional controls that a production rollout would need.</li>
+<li>Regulatory constraint. The reporting functions are intended to be illustrative of Bank of Ghana style reporting (Bank of Ghana, 2022) and are not an officially compliant regulatory module.</li>
+</ol>
+
+<h2>1.7 Assumptions and Dependencies</h2>
+<table>
+<tr><th>#</th><th>Assumption or Dependency</th><th>Justification</th></tr>
+<tr><td>A1</td><td>Every customer already has a unique national identification reference, such as a Ghana Card number, at the time of registration.</td><td>KYC practice in Ghanaian banking requires a verifiable national ID (Bank of Ghana, 2022). Without this assumption, the Customer Management module could not enforce the uniqueness rule in FR-09.</td></tr>
+<tr><td>A2</td><td>Each account belongs to exactly one home branch, and each loan is administered by exactly one branch.</td><td>This keeps ownership and reporting logic manageable while still reflecting how retail branches typically own an account relationship, even though the account is visible system wide.</td></tr>
+<tr><td>A3</td><td>All monetary amounts are in a single currency, GH&#8373;, with no foreign exchange conversion required.</td><td>This keeps the transaction processing and reporting logic within the scope of an academic project while still being realistic for a domestic retail bank.</td></tr>
+<tr><td>A4</td><td>End users, both customers and staff, have access to a modern web browser and basic digital literacy.</td><td>The system is delivered through a browser, so without this assumption the usability requirements in Section 1.8.2 could not be met.</td></tr>
+<tr><td>A5</td><td>The seeded dataset is representative but not exhaustive and does not need to model millions of records.</td><td>The purpose of this project is to demonstrate correct software engineering practice, not to test production scale data volumes.</td></tr>
+<tr><td>A6</td><td>A single Branch Manager approval is sufficient to approve or reject a loan application within the scope of this project.</td><td>Real banks may use multi level credit committees for large loans. This is simplified to a single approver so that the use case and sequence diagrams stay manageable while still showing the approval pattern clearly.</td></tr>
+<tr><td>A7</td><td>The system depends on browser local storage, or an equivalent client side mechanism, to keep simulated data between sessions during a demonstration.</td><td>Because no live backend database is deployed for the academic build, this dependency allows demonstrated data to persist across page reloads.</td></tr>
+<tr><td>A8</td><td>The system depends on the React, Vite, and related JavaScript libraries remaining available and compatible at build time.</td><td>This is a normal dependency risk for any modern front end project and is reduced by fixing dependency versions in the project's package file.</td></tr>
+</table>
+
+<h2>1.8 Non Functional Requirements</h2>
+
+<h3>1.8.1 Performance</h3>
+<ul>
+<li>NFR-01: Under normal conditions, the system shall return search results, such as customer lookup or transaction search, within two seconds for the seeded dataset.</li>
+<li>NFR-02: The system shall complete a deposit, withdrawal, or transfer and show the updated balance in the interface within one second of submission.</li>
+<li>NFR-03: The architecture shall allow the application tier, in a production deployment, to be scaled with additional server instances so that response times remain acceptable as the number of concurrent branch users grows.</li>
+</ul>
+
+<h3>1.8.2 Usability</h3>
+<ul>
+<li>NFR-04: The interface shall present role appropriate dashboards, with distinct views for Customer, Teller, Branch Manager, and Administrator, so each user sees only what is relevant to them.</li>
+<li>NFR-05: All monetary values shall be shown with the GH&#8373; symbol and two decimal places, consistently across every screen and report.</li>
+<li>NFR-06: Error messages, such as for insufficient funds or an invalid account number, shall be written in plain, non technical language that bank staff and customers can understand.</li>
+<li>NFR-07: Core transaction tasks such as deposit, withdrawal, and transfer shall be completable by a trained teller in no more than three steps after reaching the relevant screen.</li>
+</ul>
+
+<h3>1.8.3 Security</h3>
+<ul>
+<li>NFR-08: The system shall require a password for login and shall not display passwords in plain text anywhere in the interface.</li>
+<li>NFR-09: The system shall enforce role based authorisation on every protected action and shall reject attempts by a user to perform actions outside their role.</li>
+<li>NFR-10: Every financial transaction, loan decision, and card action shall be attributable to the specific user and branch that performed it, to support audits and dispute resolution.</li>
+<li>NFR-11 (production note): A real production deployment should also use encrypted transport (HTTPS and TLS), hashed and salted password storage, multi factor authentication for staff, and automatic session timeout. These controls are anticipated by the design in Section 2.1 even though they are simplified in the academic build.</li>
+</ul>
+
+<h3>1.8.4 Reliability</h3>
+<ul>
+<li>NFR-12: A transfer operation shall either fully complete, with both the debit and the credit applied, or not apply at all, so that a transfer can never be left half finished.</li>
+<li>NFR-13: The system shall keep previously entered data, such as accounts, transactions, loans, and cards, across normal page reloads during a demonstration session, using the client side persistence mechanism described in Section 1.7 (A7).</li>
+<li>NFR-14 (production note): A production deployment should target at least 99.5 percent monthly uptime for the application tier, supported by database backups and redundant application servers.</li>
+</ul>
+
+<h3>1.8.5 Maintainability</h3>
+<ul>
+<li>NFR-15: The codebase shall be organised into clearly separated modules that match the domain areas listed in Section 1.4 (Customer, Account, Transaction, Loan, Card, Branch and Staff, Reporting), so that a change in one module has minimal effect on the others.</li>
+<li>NFR-16: The system shall use consistent naming conventions, component based structure, and basic linting so the code remains readable for future maintainers.</li>
+<li>NFR-17: Business rules that are likely to change, such as interest rates, minimum balances, or loan terms, shall be stored as configurable values rather than hard coded directly in the program logic.</li>
+</ul>
+
+<hr>
+
+<h1 class="pagebreak">2. Task 2: Software Design Specification (SDS)</h1>
+
+<h2>2.1 Architectural Design and Deployment View</h2>
+<h3>2.1.1 Chosen Architectural Style and Justification</h3>
+<p>Alegria Pay is designed around a client server, three tier web application architecture, made up of a presentation tier (the web client), an application tier (the business logic), and a data tier (persistent storage). This style was chosen over the alternatives, such as a stand alone desktop application or a simple two tier client to database setup, for the following reasons.</p>
+<p>First, it allows data to be centralised and shared across branches. The main problem identified in Section 1.1 is fragmented, branch isolated data. A three tier architecture centralises customer, account, and transaction data so that every branch's client can reach the same information, which directly solves the single customer view and inter branch transfer problems.</p>
+<p>Second, it separates concerns clearly. Keeping presentation, business logic (balance checks, interest calculation, loan approval rules), and data storage in separate layers means each layer can be developed, tested, and secured somewhat independently. This matches standard software engineering practice (Sommerville, 2016; Pressman and Maxim, 2020).</p>
+<p>Third, it improves security and control. Keeping the sensitive business logic and data on a managed server tier, rather than spread across separate desktop installations in each branch, reduces the number of places an attacker could target and makes it easier to apply consistent security controls and audit logging.</p>
+<p>Fourth, it supports thin, browser based clients. Because the presentation tier is a web application, staff and customers only need a standard browser, which avoids the cost and effort of installing and updating separate client software across the Accra, Kumasi, and Tema branches.</p>
+<p>Fifth, it provides a reasonable path to scale. In a production deployment, the application tier could be run on multiple server instances behind a load balancer, independently of the data tier, which supports NFR-03 without requiring the client to be redesigned.</p>
+<p>Finally, this style matches common industry practice. Most modern banking and digital finance platforms are built as multi tier client server web systems, so using the same approach here keeps the design realistic and consistent with what the course expects students to demonstrate.</p>
+<p>For the purposes of this academic submission, the application and data tiers are implemented logically, through separate JavaScript modules and a client side persistence mechanism, inside the same deployable front end bundle, rather than through a separate live application server and database server. This is a deliberate and documented simplification made for the scope of a university project. The module boundaries and responsibilities below are designed so that the application and data tiers could later be moved out into a real server side API and a relational database with limited redesign. Only the way the tiers communicate (direct function calls today, compared with HTTP and JSON calls to a remote API in a production build) would need to change.</p>
+
+<h3>2.1.2 Major Modules and Responsibilities</h3>
+<p>The table below lists the main domain logic modules in the system. Pure interface components and raw database table definitions are left out, in line with the assignment's focus on domain logic.</p>
+<table>
+<tr><th>Module</th><th>Primary Responsibility</th></tr>
+<tr><td>Authentication and Access Control</td><td>Validates user credentials and determines and enforces the current user's role and permissions for every request.</td></tr>
+<tr><td>Customer Management</td><td>Creates and maintains customer profiles, enforces the KYC uniqueness rule, and provides the consolidated relationship view.</td></tr>
+<tr><td>Account Management</td><td>Opens, maintains, and closes Savings, Current, and Fixed Deposit accounts, and enforces account type rules such as interest, minimum balance, and maturity.</td></tr>
+<tr><td>Transaction Processing</td><td>Executes deposits, withdrawals, and intra and inter branch transfers, enforces balance and atomicity rules, and produces the transaction ledger.</td></tr>
+<tr><td>Loan Management</td><td>Manages loan products, applications, the approval or rejection workflow, disbursement, and repayment tracking.</td></tr>
+<tr><td>Card Management</td><td>Issues and manages credit cards linked to customer accounts and enforces credit limit rules.</td></tr>
+<tr><td>Branch and Staff Administration</td><td>Maintains branch records and staff accounts and manages role and branch assignment.</td></tr>
+<tr><td>Reporting</td><td>Collects data from the other modules to produce balance, transaction, loan performance, branch comparison, and staff performance reports.</td></tr>
+</table>
+
+<h3>2.1.3 Deployment Diagram</h3>
+<p>A full UML deployment diagram is provided in the accompanying Draw.io file (Alegria_Pay_Diagrams.drawio, Page 1). It is described in text here for completeness.</p>
+<p>A customer device, such as a desktop, laptop, or mobile browser, hosts the Alegria Pay web client, which is the React single page application. It communicates with the web and application server over HTTPS. A branch workstation at Accra, Kumasi, or Tema hosts the same web client used by tellers and branch managers, and it connects to the same server over the bank's internal network and HTTPS. The web and application server hosts the Alegria Pay application services, which package together the Authentication, Customer, Account, Transaction, Loan, Card, Branch and Staff, and Reporting modules described above, exposed as a RESTful JSON API. This server communicates with the database server over a secured internal connection. The database server hosts the Alegria Pay database, a relational database holding tables for Customers, Accounts, Transactions, Loans, Repayments, Cards, Branches, and Staff.</p>
+<p>As noted in Section 2.1.1, the version submitted for this course embeds a lightweight, in browser simulation of the application services and database inside the web client node, using seeded objects and local storage for persistence, so that the system can be demonstrated without a separate live server. The deployment diagram in the Draw.io file shows both this simulation arrangement and the target production topology described above.</p>
+
+<h3>2.1.4 Responsibilities and Collaborators</h3>
+<table>
+<tr><th>Element</th><th>Responsibilities</th><th>Key Collaborators</th></tr>
+<tr><td>Alegria Pay Web Client</td><td>Renders role based screens, captures and validates basic input, calls application services, and displays results, balances, and reports.</td><td>Authentication module, and all domain modules through API calls</td></tr>
+<tr><td>Authentication and Access Control</td><td>Verifies credentials, issues and checks the session, and exposes the current user's role to other modules.</td><td>Customer Management, Branch and Staff Administration</td></tr>
+<tr><td>Customer Management</td><td>Creates, searches, and updates customer profiles, enforces ID uniqueness, and assembles the relationship view.</td><td>Account Management, Loan Management, Card Management</td></tr>
+<tr><td>Account Management</td><td>Opens and closes accounts, enforces account type rules, and provides balance and statement queries.</td><td>Transaction Processing, Customer Management, Reporting</td></tr>
+<tr><td>Transaction Processing</td><td>Validates and posts deposits, withdrawals, and transfers, maintains the transaction ledger, and enforces atomicity.</td><td>Account Management, Branch and Staff Administration, Reporting</td></tr>
+<tr><td>Loan Management</td><td>Manages the loan lifecycle from application through approval, disbursement, and repayment.</td><td>Account Management (for disbursement and repayment posting), Customer Management, Reporting</td></tr>
+<tr><td>Card Management</td><td>Issues and manages cards and enforces credit limit rules.</td><td>Account Management, Customer Management</td></tr>
+<tr><td>Branch and Staff Administration</td><td>Maintains branch and staff records and assigns roles and branches.</td><td>Authentication, Reporting</td></tr>
+<tr><td>Reporting</td><td>Collects and presents operational and management reports.</td><td>Account Management, Transaction Processing, Loan Management, Branch and Staff Administration</td></tr>
+<tr><td>Alegria Pay Database (production target) or local persistence (academic build)</td><td>Provides durable storage for all entities and enforces referential integrity.</td><td>All domain modules</td></tr>
+</table>
+
+<h3>2.1.5 Design Decisions</h3>
+<p>A number of design decisions were made while putting this architecture together. All domain modules are exposed behind a single application services boundary, rather than letting the client talk directly to the data tier. This keeps business rules, such as balance checks and the loan approval workflow, out of the client and centrally enforced, which supports NFR-09 and NFR-12. Branch is modelled as a first class entity that is referenced by accounts, staff, transactions, and loans, rather than as a plain text field, because this is needed for the inter branch transfer logic in FR-18 and for branch level reporting in FR-37 and FR-38. Reporting is kept as a separate module that reads from the other modules rather than keeping its own duplicate data, which avoids data drift and follows the principle of having a single source of truth.</p>
+<p>It is assumed that a production deployment would place the application server and database server inside the bank's own secured data centre, or with a vetted cloud provider operating under relevant Bank of Ghana data residency and cybersecurity rules. This project does not attempt to model that infrastructure in detail beyond noting it as the intended target. It is also assumed that the academic build's simulation of the application and data tiers, described in Sections 2.1.1 and 2.1.3, does not change the logical module boundaries or the use case, class, or sequence designs described below. Only the physical deployment nodes and the way the tiers talk to each other would differ.</p>
+
+<h2>2.2 Use Case Model</h2>
+<h3>2.2.1 Actors</h3>
+<ul>
+<li>Customer: an individual who holds one or more accounts, loans, or cards with the bank and uses the system to view and manage their own banking relationship.</li>
+<li>Teller or Staff: front line branch staff who process day to day transactions and customer service requests on behalf of customers.</li>
+<li>Branch Manager: branch level staff responsible for approving or rejecting loans and overseeing branch performance. A Branch Manager can also do everything a Teller can do.</li>
+<li>Administrator: a head office or IT role responsible for staff accounts, branch configuration, and system wide oversight. An Administrator can also do everything a Branch Manager can do.</li>
+</ul>
+<p>A full UML use case diagram, showing all actors, use cases, and include and extend relationships, is provided in Alegria_Pay_Diagrams.drawio (Page 2). The diagram groups use cases under the eight domain modules described in Section 2.1.2, inside the Alegria Pay system boundary, with the four actors positioned outside the boundary and connected to the use cases they perform. The table below documents the same information in text form.</p>
+
+<h3>2.2.2 Use Case Table</h3>
+<table>
+<tr><th>ID</th><th>Use Case</th><th>Primary Actor(s)</th><th>Description</th><th>Includes or Extends</th></tr>
+<tr><td>UC-01</td><td>Login</td><td>Customer, Teller, Branch Manager, Administrator</td><td>The actor logs in with an email and password to obtain a role based session.</td><td>Base use case, included by UC-02 through UC-26</td></tr>
+<tr><td>UC-02</td><td>Logout</td><td>Customer, Teller, Branch Manager, Administrator</td><td>The actor ends their authenticated session.</td><td>None</td></tr>
+<tr><td>UC-03</td><td>Register Customer</td><td>Teller, Administrator</td><td>Capture a new customer's profile and KYC reference, creating a customer record.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-04</td><td>Search or View Customer Profile</td><td>Teller, Branch Manager, Administrator</td><td>Locate a customer by name, ID, or phone number and view their profile and summary.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-05</td><td>Update Customer Profile</td><td>Customer, Teller</td><td>Modify a customer's contact details.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-06</td><td>View Consolidated Relationship Summary</td><td>Customer, Teller, Branch Manager</td><td>View all accounts, loans, and cards held by a customer.</td><td>Includes UC-04</td></tr>
+<tr><td>UC-07</td><td>Open Account</td><td>Teller, Administrator</td><td>Create a new Savings, Current, or Fixed Deposit account for an existing customer.</td><td>Includes UC-04</td></tr>
+<tr><td>UC-08</td><td>Close or Suspend Account</td><td>Teller, Branch Manager</td><td>Deactivate or close an account, recording the reason.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-09</td><td>View Account Balance</td><td>Customer, Teller</td><td>Retrieve the current balance and status of an account.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-10</td><td>Generate Account Statement</td><td>Customer, Teller</td><td>Produce a transaction listing for an account over a date range.</td><td>Includes UC-09</td></tr>
+<tr><td>UC-11</td><td>Deposit Funds</td><td>Teller</td><td>Record a cash deposit into an account.</td><td>Includes UC-09</td></tr>
+<tr><td>UC-12</td><td>Withdraw Funds</td><td>Customer, Teller</td><td>Withdraw cash from an account, subject to balance rules.</td><td>Includes UC-09</td></tr>
+<tr><td>UC-13</td><td>Transfer Funds</td><td>Customer, Teller</td><td>Move funds from one account to another.</td><td>Includes UC-09</td></tr>
+<tr><td>UC-14</td><td>Transfer Funds, Inter Branch</td><td>Customer, Teller</td><td>A transfer where the source and destination accounts belong to different branches.</td><td>Extends UC-13</td></tr>
+<tr><td>UC-15</td><td>View Transaction History</td><td>Customer, Teller, Branch Manager</td><td>Search and filter posted transactions by account, date, type, or branch.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-16</td><td>Apply for Loan</td><td>Customer, Teller</td><td>Submit a loan application specifying product, amount, and term.</td><td>Includes UC-04</td></tr>
+<tr><td>UC-17</td><td>Review Loan Application</td><td>Branch Manager</td><td>Examine a pending loan application and the applicant's data.</td><td>Includes UC-06</td></tr>
+<tr><td>UC-18</td><td>Approve Loan</td><td>Branch Manager</td><td>Approve a reviewed loan application.</td><td>Extends UC-17</td></tr>
+<tr><td>UC-19</td><td>Reject Loan</td><td>Branch Manager</td><td>Reject a reviewed loan application, recording a reason.</td><td>Extends UC-17</td></tr>
+<tr><td>UC-20</td><td>Disburse Loan</td><td>Teller, Branch Manager</td><td>Credit the approved loan principal into the customer's nominated account.</td><td>Includes UC-11, requires UC-18 to be complete</td></tr>
+<tr><td>UC-21</td><td>Generate Repayment Schedule</td><td>System, triggered by UC-20</td><td>Automatically compute the instalment schedule for a disbursed loan.</td><td>Includes UC-20</td></tr>
+<tr><td>UC-22</td><td>Record Loan Repayment</td><td>Customer, Teller</td><td>Record a repayment against an active loan and update the outstanding balance.</td><td>Includes UC-09</td></tr>
+<tr><td>UC-23</td><td>Flag Overdue Loan</td><td>System, scheduled</td><td>Mark a loan as overdue when a repayment is missed.</td><td>Includes UC-21</td></tr>
+<tr><td>UC-24</td><td>Issue Credit Card</td><td>Teller, Branch Manager</td><td>Issue a new credit card linked to an eligible account with an assigned limit.</td><td>Includes UC-04</td></tr>
+<tr><td>UC-25</td><td>Block or Unblock Card</td><td>Teller, Branch Manager, Customer</td><td>Change a credit card's active or blocked status.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-26</td><td>Manage Staff Accounts</td><td>Administrator</td><td>Create, update, or deactivate staff accounts and assign branch and role.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-27</td><td>Manage Branch Data</td><td>Administrator</td><td>Create or update branch master data for Accra, Kumasi, and Tema.</td><td>Includes UC-01</td></tr>
+<tr><td>UC-28</td><td>Generate Branch Comparison Report</td><td>Branch Manager, Administrator</td><td>Compare transaction volume and loan income across branches.</td><td>Includes UC-15 and UC-22</td></tr>
+<tr><td>UC-29</td><td>Generate Staff Performance Report</td><td>Branch Manager, Administrator</td><td>Rank staff by transaction volume and value within a period.</td><td>Includes UC-15</td></tr>
+<tr><td>UC-30</td><td>Generate Loan Repayment Performance Report</td><td>Branch Manager, Administrator</td><td>Summarise current, overdue, and repaid loans by branch.</td><td>Includes UC-22 and UC-23</td></tr>
+</table>
+
+<h2>2.3 Sequence Diagrams</h2>
+<p>Formal UML sequence diagrams for the two main scenarios below are provided in Alegria_Pay_Diagrams.drawio (Page 3, Transfer Funds, and Page 4, Loan Approval and Disbursement). They are documented here as message lists, together with the assumptions and reasoning behind each design.</p>
+
+<h3>2.3.1 Sequence Diagram 1: Transfer Funds (UC-13 and UC-14)</h3>
+<p>Participants: Teller or Customer (actor), TransferUI (web client), TransactionController (application service), AccountService (application service), SourceAccount (account), DestinationAccount (account), and TransactionLedger (repository).</p>
+<p>Main scenario:</p>
+<ol>
+<li>The actor, either a Teller or Customer, selects Transfer Funds and enters the source account, destination account, and amount in TransferUI.</li>
+<li>TransferUI sends an initiateTransfer request with the source account, destination account, and amount to TransactionController.</li>
+<li>TransactionController calls AccountService to validate that both accounts exist and are active.</li>
+<li>TransactionController asks SourceAccount to check that there are sufficient funds. The account confirms that there are, and that the minimum balance rule is satisfied.</li>
+<li>TransactionController calls AccountService to determine whether the two accounts belong to the same branch or to different branches, and tags the transaction as intra branch (UC-13) or inter branch (UC-14) accordingly.</li>
+<li>TransactionController begins a single atomic operation and asks SourceAccount to debit the amount.</li>
+<li>TransactionController asks DestinationAccount to credit the amount.</li>
+<li>TransactionController asks TransactionLedger to record the transfer, capturing both legs, the timestamp, the performing user, and the branches involved, as one transaction record.</li>
+<li>TransactionController completes the operation and returns a success response to TransferUI.</li>
+<li>TransferUI shows the updated balance of the source account and a success message to the actor.</li>
+</ol>
+<p>Alternative flow, insufficient funds: at step 4, if there are not enough funds, SourceAccount reports this and TransactionController stops the operation without applying any debit or credit. TransferUI then shows an error message to the actor, which satisfies FR-19.</p>
+<p>Assumptions: a transfer is treated as one logical operation with two balance updates, debit then credit, carried out inside a single atomic step, so that a failure between steps 6 and 7 cannot leave the books unbalanced. This directly supports NFR-12. Checks beyond basic balance and minimum balance validation, such as daily transfer limits or fraud screening, are outside the scope of this project (Section 1.3.2) and are therefore not shown in the sequence. Inter branch transfers follow exactly the same steps as intra branch transfers. The only difference is that step 5 additionally records the two separate branch identifiers for reporting purposes (FR-18 and FR-38), which is why UC-14 is modelled as an extension of UC-13 rather than as a separate diagram.</p>
+<p>Keeping the debit, credit, and recording logic inside TransactionController and AccountService, rather than letting the user interface change balances directly, keeps the separation of concerns described in Section 2.1 and guarantees that every transfer, no matter which screen or actor started it, is checked and recorded in the same way.</p>
+
+<h3>2.3.2 Sequence Diagram 2: Loan Approval and Disbursement (UC-17, UC-18, UC-20, UC-21)</h3>
+<p>Participants: Customer or Teller (actor), LoanUI (web client), LoanController (application service), LoanService (application service), Branch Manager (actor), AccountService (application service), and LoanRepository (repository).</p>
+<p>Main scenario:</p>
+<ol>
+<li>The customer, or a teller acting for the customer, submits a loan application through LoanUI, which sends the customer ID, product type, principal, and term in months to LoanController. This realises UC-16.</li>
+<li>LoanController calls LoanService to create the application. LoanService checks the requested principal against the loan product's allowed range and creates a loan record with the status pending.</li>
+<li>LoanService asks LoanRepository to save the pending application.</li>
+<li>The Branch Manager opens the pending applications queue in LoanUI, which asks LoanController for all pending applications at the branch. LoanController returns the list through LoanService and LoanRepository, realising UC-17.</li>
+<li>The Branch Manager reviews the applicant's consolidated relationship view, reusing UC-04 and UC-06, and selects Approve.</li>
+<li>LoanUI sends an approveLoan request with the loan ID and manager ID to LoanController, realising UC-18.</li>
+<li>LoanController calls LoanService to approve the loan. LoanService updates the status to approved, records the approving manager and the approval date, and asks LoanRepository to update the record.</li>
+<li>LoanController calls LoanService to disburse the loan into the target account, realising UC-20.</li>
+<li>LoanService calls AccountService to credit the target account with the principal amount, reusing the same deposit logic already validated in Sequence Diagram 1, posting the disbursed funds into the customer's nominated account.</li>
+<li>LoanService generates the repayment schedule, realising UC-21, by computing the instalment amounts and due dates from the principal, interest rate, and term, and saving the schedule through LoanRepository.</li>
+<li>LoanController returns a disbursement confirmation to LoanUI, which shows the updated loan status, disbursed amount, and the first repayment due date to the actor.</li>
+</ol>
+<p>Alternative flow, rejection: at step 5, if the Branch Manager selects Reject instead of Approve, LoanUI sends a rejectLoan request with the loan ID, manager ID, and reason. LoanController and LoanService update the status to rejected and record the reason, realising UC-19. Steps 8 through 11, disbursement and schedule generation, do not take place, which enforces FR-28 structurally, since the disburse operation is never called on an application that is not in the approved state.</p>
+<p>Assumptions: a single Branch Manager approval is sufficient for any loan amount within the scope of this project, as noted in Assumption A6 in Section 1.7. A production system might require a multi level credit committee for larger amounts, which would simply add further review and approval steps to the same pattern. Disbursement always targets an account already owned by the applicant, which AccountService re-checks before crediting. The repayment schedule in step 10 uses a simple fixed instalment amortisation calculation for the purposes of this project.</p>
+<p>Reusing the credit operation in AccountService for loan disbursement, instead of writing a separate balance update for loans, avoids duplicating logic in two places and applies the single responsibility and don't repeat yourself principles discussed in Section 2.4.3. Keeping LoanController for orchestration, LoanService for business rules, and LoanRepository for persistence as separate layers mirrors the same pattern used in Sequence Diagram 1, which keeps the design consistent across modules.</p>
+
+<h2>2.4 Class Diagram</h2>
+<p>A full UML class diagram is provided in Alegria_Pay_Diagrams.drawio (Page 5), showing all classes, attributes, operations, associations, and cardinalities. The class model is described below.</p>
+
+<h3>2.4.1 Class Descriptions</h3>
+<table>
+<tr><th>Class</th><th>Key Attributes</th><th>Key Operations</th></tr>
+<tr><td>User (abstract base class)</td><td>userId, name, email, passwordHash, phone, role</td><td>login(), logout(), hasPermission(action)</td></tr>
+<tr><td>Customer (extends User)</td><td>customerId, address, nationalIdRef, homeBranchId</td><td>getRelationshipSummary(), updateProfile()</td></tr>
+<tr><td>Staff (abstract, extends User)</td><td>staffId, employeeNo, position, branchId</td><td>(shared by Teller, BranchManager, Administrator)</td></tr>
+<tr><td>Teller (extends Staff)</td><td>None additional</td><td>processDeposit(), processWithdrawal(), processTransfer()</td></tr>
+<tr><td>BranchManager (extends Teller)</td><td>None additional</td><td>reviewLoanApplication(), approveLoan(), rejectLoan(), viewBranchReport()</td></tr>
+<tr><td>Administrator (extends BranchManager)</td><td>None additional</td><td>createStaffAccount(), deactivateStaffAccount(), manageBranch()</td></tr>
+<tr><td>Branch</td><td>branchId, name, code, location, phone</td><td>listAccounts(), listStaff(), getPerformanceSummary()</td></tr>
+<tr><td>Account (abstract)</td><td>accountNumber, balance, status, openedAt, customerId, branchId</td><td>deposit(amount), withdraw(amount), getStatement(from, to), calculateInterest()</td></tr>
+<tr><td>SavingsAccount (extends Account)</td><td>interestRate</td><td>calculateInterest() overridden</td></tr>
+<tr><td>CurrentAccount (extends Account)</td><td>minimumBalance</td><td>withdraw(amount) overridden to enforce minimum balance</td></tr>
+<tr><td>FixedDepositAccount (extends Account)</td><td>interestRate, maturityDate</td><td>calculateInterest() overridden, isMatured()</td></tr>
+<tr><td>Transaction (abstract)</td><td>txnId, amount, timestamp, performedBy, branchId, status, reference</td><td>post(), reverse()</td></tr>
+<tr><td>Deposit (extends Transaction)</td><td>toAccount</td><td>post() overridden</td></tr>
+<tr><td>Withdrawal (extends Transaction)</td><td>fromAccount</td><td>post() overridden</td></tr>
+<tr><td>Transfer (extends Transaction)</td><td>fromAccount, toAccount, isInterBranch</td><td>post() overridden</td></tr>
+<tr><td>Loan</td><td>loanId, customerId, productId, principal, termMonths, status, balanceRemaining, approvedBy, branchId</td><td>approve(managerId), reject(managerId, reason), disburse(accountId), generateRepaymentSchedule()</td></tr>
+<tr><td>LoanRepayment</td><td>repaymentId, loanId, instalmentNumber, amount, dueDate, paidDate, status</td><td>record(), isOverdue()</td></tr>
+<tr><td>CreditCard</td><td>cardId, customerId, accountId, cardNumberMasked, limit, availableCredit, status, expiry</td><td>issue(), block(), unblock(), adjustLimit(newLimit)</td></tr>
+</table>
+<p>Two supporting classes are also used but are kept outside the core domain model described above: LoanProduct, which defines the interest rate and allowed amount range for a loan type, and ReportGenerator, which produces the reports listed in Section 1.4.</p>
+
+<h3>2.4.2 Relationships and Cardinalities</h3>
+<table>
+<tr><th>Relationship</th><th>Cardinality</th><th>Notes</th></tr>
+<tr><td>Branch to Staff</td><td>1 to 0..*</td><td>A branch employs zero or more staff. A staff member belongs to exactly one branch.</td></tr>
+<tr><td>Branch to Account</td><td>1 to 0..*</td><td>A branch hosts zero or more accounts. An account belongs to exactly one home branch.</td></tr>
+<tr><td>Customer to Account</td><td>1 to 0..*</td><td>A customer may hold zero or more accounts. Each account has exactly one owning customer.</td></tr>
+<tr><td>Account to Transaction</td><td>1 to 0..*</td><td>An account takes part in zero or more transactions, as the source, the destination, or both. Each deposit or withdrawal references one account, and each transfer references two accounts.</td></tr>
+<tr><td>Customer to Loan</td><td>1 to 0..*</td><td>A customer may hold zero or more loans. Each loan belongs to exactly one customer.</td></tr>
+<tr><td>Loan to LoanRepayment</td><td>1 to 0..*</td><td>A loan accumulates zero or more individual repayment records over time.</td></tr>
+<tr><td>Customer to CreditCard</td><td>1 to 0..*</td><td>A customer may hold zero or more credit cards.</td></tr>
+<tr><td>CreditCard to Account</td><td>1 to 1</td><td>Each credit card is linked to exactly one settlement account.</td></tr>
+<tr><td>BranchManager to Loan (approves)</td><td>1 to 0..*</td><td>A branch manager may approve or reject zero or more loans. Each approved or rejected loan records exactly one approving manager.</td></tr>
+<tr><td>User (generalisation)</td><td>not applicable</td><td>Customer and Staff generalise User. Teller, BranchManager, and Administrator form an increasing hierarchy under Staff, since an Administrator can do everything a Branch Manager can do, which in turn includes everything a Teller can do.</td></tr>
+<tr><td>Account (generalisation)</td><td>not applicable</td><td>SavingsAccount, CurrentAccount, and FixedDepositAccount generalise Account.</td></tr>
+<tr><td>Transaction (generalisation)</td><td>not applicable</td><td>Deposit, Withdrawal, and Transfer generalise Transaction.</td></tr>
+</table>
+
+<h3>2.4.3 Design Principles Applied</h3>
+<p>Each class in this model is given one clear purpose. For example, LoanRepayment only records an individual payment event and whether it is overdue, while ReportGenerator is kept separate from the modules whose data it reports on. This follows the single responsibility principle.</p>
+<p>The Account balance attribute is private and can only be changed through the deposit() and withdraw() operations, which enforce the business rules, rather than being set directly by calling code. This use of encapsulation is what makes NFR-12 (atomicity) and FR-19 (no negative balances) possible to enforce reliably.</p>
+<p>The calculateInterest() operation is declared on the abstract Account class and is overridden differently by SavingsAccount and FixedDepositAccount, and effectively does nothing in CurrentAccount. In the same way, post() is overridden by Deposit, Withdrawal, and Transfer. This use of polymorphism means new account or transaction types could be added later as new subclasses without changing existing, already tested classes, following the open and closed principle.</p>
+<p>The User to Staff to Teller to BranchManager to Administrator hierarchy avoids repeating shared attributes, such as name, email, and role, and shared operations across every staff type, which reduces duplication through inheritance.</p>
+<p>Interaction between modules, such as a loan disbursement needing to credit an account, happens through well defined operations like Account.deposit(), rather than one class reaching directly into another class's internal data. This keeps coupling low and cohesion high, matching the layered pattern already used in the sequence diagrams in Section 2.3.</p>
+<p>Finally, ReportGenerator depends on the public operations of the domain classes rather than on how they are stored internally, so the persistence mechanism, an in browser simulation for this submission and a relational database in a future production build, could be replaced without rewriting the domain classes themselves.</p>
+<p>A few simplifying assumptions apply to this model. Each CreditCard is linked to exactly one Account, and settlement across multiple accounts is not modelled, keeping this within the scope boundary set in Section 1.3.2. Each Loan references exactly one LoanProduct, which defines the interest rate applied, rather than allowing a fully negotiated custom rate for every loan. Status changes, such as closing an account, blocking a card, or rejecting a loan, are modelled as changes to an attribute on the existing object rather than as deletion, which preserves the audit trail required by NFR-10.</p>
+
+<hr>
+
+<h1 class="pagebreak">3. Testing Approach</h1>
+<p>Testing of Alegria Pay follows a layered approach aligned with the requirements documented above, consistent with standard software testing practice (Sommerville, 2016; Pressman and Maxim, 2020).</p>
+<p>Unit testing covers core domain logic such as balance validation, interest and instalment calculation, loan status transitions, and credit limit checks. These are tested in isolation with valid, boundary, and invalid inputs, for example a withdrawal that exactly equals the balance, a withdrawal of GH&#8373; 0.01 more than the available balance, and a negative deposit amount.</p>
+<p>Integration testing checks that the module interactions described in Section 2.1.4 work correctly end to end for the two documented scenarios, Transfer Funds and Loan Approval and Disbursement, and for their main alternative flows, insufficient funds and loan rejection, confirming that the module boundaries from the design are respected in the implementation.</p>
+<p>Functional testing checks each functional requirement in Section 1.5 against the system through the user interface, in the role it applies to. For example, FR-18, the inter branch transfer requirement, is tested by logging in as the Accra teller and transferring funds to a Kumasi account, then checking that both ledgers and the branch comparison report reflect the movement correctly.</p>
+<p>Role based access testing checks, for every protected action, that a user without the required role is correctly denied access, which supports NFR-09. For example, it is verified that a Customer session cannot reach the loan approval or staff management screens.</p>
+<p>User acceptance testing uses the demonstration credentials in Appendix A to walk through each use case in Section 2.2.2 from the point of view of a Customer, a Teller, a Branch Manager, and an Administrator, confirming that the system behaves as described and supports the oral demonstration required for this course.</p>
+<p>Regression testing is carried out after each module is added or changed during development, by re-running the previously passing test cases for earlier modules to confirm that nothing was broken. This matters in particular for the Transaction Processing module, which is reused by both ordinary transfers and loan disbursement, as shown in Section 2.3.2.</p>
+<p>A small sample of the requirement to test case mapping used during testing is shown below.</p>
+<table>
+<tr><th>Requirement</th><th>Test Case Summary</th><th>Expected Result</th></tr>
+<tr><td>FR-16 and FR-19</td><td>Withdraw an amount larger than the account balance.</td><td>The system rejects the withdrawal, shows an insufficient funds message, and leaves the balance unchanged.</td></tr>
+<tr><td>FR-17 and FR-18</td><td>Transfer GH&#8373; 500 from an Accra account to a Kumasi account.</td><td>The source account is debited GH&#8373; 500, the destination account is credited GH&#8373; 500, and one transaction record is created, tagged as inter branch.</td></tr>
+<tr><td>FR-23 and FR-28</td><td>Attempt to disburse a loan that is still pending.</td><td>The system refuses disbursement until the loan status is approved.</td></tr>
+<tr><td>FR-30</td><td>Simulate card use that would go beyond the available credit limit.</td><td>The system rejects the transaction and leaves the available credit unchanged.</td></tr>
+<tr><td>NFR-09</td><td>Log in as a Customer and attempt to open the staff management screen.</td><td>Access is denied and the Customer is returned to their own dashboard.</td></tr>
+</table>
+
+<hr>
+
+<h1>4. References</h1>
+<p>Asante, K., and Boateng, M. (2021). Digital transformation in Ghana's banking sector: Challenges and opportunities. Journal of African Business and Economic Research, 16(2), 45-63.</p>
+<p>Bank of Ghana. (2022). Guidelines for electronic banking and payment services in Ghana. Bank of Ghana Press.</p>
+<p>Bank of Ghana. (2023). Annual report on the payment systems oversight. Bank of Ghana. https://www.bog.gov.gh</p>
+<p>Fowler, M. (2018). Refactoring: Improving the design of existing code (2nd ed.). Addison-Wesley.</p>
+<p>Larman, C. (2005). Applying UML and patterns: An introduction to object oriented analysis and design and iterative development (3rd ed.). Prentice Hall.</p>
+<p>Pressman, R. S., and Maxim, B. R. (2020). Software engineering: A practitioner's approach (9th ed.). McGraw-Hill Education.</p>
+<p>Sommerville, I. (2016). Software engineering (10th ed.). Pearson Education.</p>
+
+<hr>
+
+<h1 class="pagebreak">Appendix A: Demo Credentials</h1>
+<p>The seeded accounts below are provided for demonstration and grading purposes only. All passwords are for academic simulation and must never be reused for real banking credentials.</p>
+<table>
+<tr><th>Role</th><th>Name</th><th>Email</th><th>Password</th><th>Branch</th></tr>
+<tr><td>Administrator</td><td>Ama Mensah</td><td>admin@alegriapay.gh</td><td>admin123</td><td>Accra Head Office</td></tr>
+<tr><td>Branch Manager</td><td>Kwame Asante</td><td>manager@alegriapay.gh</td><td>manager123</td><td>Accra Head Office</td></tr>
+<tr><td>Teller</td><td>Efua Boateng</td><td>teller@alegriapay.gh</td><td>teller123</td><td>Accra Head Office</td></tr>
+<tr><td>Teller</td><td>Yaw Owusu</td><td>teller.kumasi@alegriapay.gh</td><td>teller123</td><td>Kumasi</td></tr>
+<tr><td>Customer</td><td>Akosua Darko</td><td>akosua@email.com</td><td>customer123</td><td>Accra</td></tr>
+<tr><td>Customer</td><td>Kofi Adjei</td><td>kofi@email.com</td><td>customer123</td><td>Kumasi</td></tr>
+<tr><td>Customer</td><td>Abena Sarpong</td><td>abena@email.com</td><td>customer123</td><td>Tema</td></tr>
+</table>
+<p>Suggested demo walkthrough:</p>
+<ol>
+<li>Log in as Administrator, view branches and staff, and create a new staff account.</li>
+<li>Log in as Teller (Accra), deposit funds into Akosua Darko's savings account, then transfer funds to Kofi Adjei's Kumasi account as an inter branch transfer.</li>
+<li>Log in as Customer (Kofi Adjei), view the updated balance and transaction history, then apply for a loan.</li>
+<li>Log in as Branch Manager, review and approve the pending loan, then confirm the disbursement and the generated repayment schedule.</li>
+<li>Log in as Administrator or Branch Manager and generate the branch comparison and staff performance reports.</li>
+</ol>
+
+<hr>
+
+<h1 class="pagebreak">Appendix B: Glossary of Terms</h1>
+<table>
+<tr><th>Term</th><th>Definition</th></tr>
+<tr><td>KYC</td><td>Know Your Customer, the process of verifying a customer's identity before opening an account.</td></tr>
+<tr><td>GH&#8373;</td><td>The Ghana Cedi, the official currency used for all monetary values in this system.</td></tr>
+<tr><td>Intra branch transfer</td><td>A funds transfer where the source and destination accounts belong to the same branch.</td></tr>
+<tr><td>Inter branch transfer</td><td>A funds transfer where the source and destination accounts belong to different branches, for example Accra to Kumasi.</td></tr>
+<tr><td>NPL</td><td>Non Performing Loan, a loan on which the borrower has failed to make scheduled repayments for an extended period.</td></tr>
+<tr><td>RBAC</td><td>Role Based Access Control, restricting system actions based on a user's assigned role.</td></tr>
+<tr><td>SPA</td><td>Single Page Application, a web application that loads a single HTML page and updates its content without full page reloads.</td></tr>
+</table>
+
+<p style="text-align:center; margin-top:2em;"><em>End of Report.</em></p>
+
+</body>
+</html>

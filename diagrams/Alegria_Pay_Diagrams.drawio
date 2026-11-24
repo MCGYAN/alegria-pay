@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-24T00:00:00.000Z" agent="Cursor Agent" version="24.7.17" type="device">
+  <diagram id="page1-deployment" name="1 - Deployment Diagram">
+    <mxGraphModel dx="1422" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="Alegria Pay - Deployment Diagram (3-Tier Client-Server Architecture)" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1040" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="Accra Branch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;fontStyle=1;fontSize=13;arcSize=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Kumasi Branch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;fontStyle=1;fontSize=13;arcSize=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="70" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Tema Branch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;fontStyle=1;fontSize=13;arcSize=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="70" width="220" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="6" value="Staff Browser&lt;br&gt;(Teller / Manager Workstation)" style="shape=cube;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=12;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Staff Browser&lt;br&gt;(Teller / Manager Workstation)" style="shape=cube;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=12;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="130" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Staff Browser&lt;br&gt;(Teller / Manager Workstation)" style="shape=cube;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=12;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="130" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="9" value="Customer Browser&lt;br&gt;(Web / Mobile - anywhere in Ghana)" style="shape=cube;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;size=12;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="100" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="10" value="Internet / Network" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="260" width="320" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="11" value="Web Server&lt;br&gt;React SPA + Vite (Static Hosting / Dev Server)" style="shape=cube;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=12;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="420" width="320" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="12" value="Application Logic Layer&lt;br&gt;Banking Services (Auth, Accounts, Transactions, Loans, Cards)" style="shape=cube;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;size=12;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="560" width="320" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="13" value="Database&lt;br&gt;localStorage / JSON Persistence (Simulated DB)" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;boundedLbl=1;fontSize=12;fontStyle=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="400" y="700" width="320" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="14" value="Note: Accra, Kumasi and Tema branches are shown conceptually. In this simulation all branch staff and customer clients connect to the same centralized Web Server, Application Logic Layer and Database (localStorage / JSON)." style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#666666;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="830" width="1040" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="15" value="HTTPS" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="6" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="HTTPS" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="7" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="HTTPS" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="8" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="HTTPS" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Serves React SPA" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Invokes banking service functions" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Reads / Writes JSON records" style="endArrow=classic;startArrow=classic;html=1;fontSize=11;rounded=0;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page2-usecase" name="2 - Use Case Diagram">
+    <mxGraphModel dx="1422" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="Alegria Pay - Use Case Diagram" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1100" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="Alegria Pay Banking System" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;verticalAlign=top;fontStyle=1;fontSize=14;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="60" width="640" height="880" as="geometry" />
+        </mxCell>
+
+        <mxCell id="4" value="Register / Login" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="100" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="View Profile" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="190" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Open Account" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="280" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Deposit" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="370" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Withdraw" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="460" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Transfer Funds&lt;br&gt;(same-bank &amp; inter-branch)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="550" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Apply for Loan" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="640" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Make Loan Repayment" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="730" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Request / Manage Credit Card" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="820" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="13" value="View Transaction History" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="100" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Manage Customers" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="190" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="Manage Staff" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="280" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Manage Branches" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="370" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Generate Reports" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="460" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Approve Loan" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="550" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Authenticate" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="640" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Check Balance" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="730" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Attach Collateral" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="820" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="22" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="Bank Staff (Teller)" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="650" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Branch Manager" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="300" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="System Admin" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="600" width="60" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="26" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="27" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="28" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="29" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="30" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="31" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="9"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="32" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="10"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="33" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="11"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="34" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="12"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="35" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="22" target="13"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="36" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="23" target="4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="37" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="23" target="7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="38" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="23" target="8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="39" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="23" target="9"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="40" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="23" target="13"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="41" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="23" target="14"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="42" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="24" target="4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="43" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="24" target="18"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="44" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="24" target="17"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="45" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="24" target="15"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="46" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="25" target="4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="47" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="25" target="15"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="48" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="25" target="16"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="49" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="25" target="17"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="50" value="&#171;include&#187;" style="endArrow=open;endSize=8;dashed=1;html=1;fontSize=10;rounded=0;" edge="1" parent="1" source="9" target="19"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="51" value="&#171;include&#187;" style="endArrow=open;endSize=8;dashed=1;html=1;fontSize=10;rounded=0;" edge="1" parent="1" source="7" target="19"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="52" value="&#171;include&#187;" style="endArrow=open;endSize=8;dashed=1;html=1;fontSize=10;rounded=0;" edge="1" parent="1" source="8" target="19"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="53" value="&#171;extend&#187;" style="endArrow=open;endSize=8;dashed=1;html=1;fontSize=10;rounded=0;" edge="1" parent="1" source="8" target="20"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="54" value="&#171;extend&#187;" style="endArrow=open;endSize=8;dashed=1;html=1;fontSize=10;rounded=0;" edge="1" parent="1" source="10" target="21"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page3-sequence-transfer" name="3 - Sequence - Transfer Funds">
+    <mxGraphModel dx="1422" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="Sequence Diagram: Customer Transfer Funds (Main Success Scenario)" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="0" width="1200" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="AuthService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="AccountService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="TransactionService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Notification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="9" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="100" as="sourcePoint" />
+            <mxPoint x="90" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="80" as="sourcePoint" />
+            <mxPoint x="300" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="80" as="sourcePoint" />
+            <mxPoint x="520" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="80" as="sourcePoint" />
+            <mxPoint x="740" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="80" as="sourcePoint" />
+            <mxPoint x="970" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="80" as="sourcePoint" />
+            <mxPoint x="1190" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="15" value="1: enterTransferDetails(fromAcct, toAcct, amount)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="90" y="130" as="sourcePoint" /><mxPoint x="300" y="130" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="2: validateSession(token)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="170" as="sourcePoint" /><mxPoint x="520" y="170" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="3: sessionValid = true" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="520" y="210" as="sourcePoint" /><mxPoint x="300" y="210" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="4: getAccount(fromAcct)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="250" as="sourcePoint" /><mxPoint x="740" y="250" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="5: accountDetails(balance)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="740" y="290" as="sourcePoint" /><mxPoint x="300" y="290" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="6: checkBalance(amount)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="330" as="sourcePoint" /><mxPoint x="740" y="330" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="7: balanceSufficient = true" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="740" y="370" as="sourcePoint" /><mxPoint x="300" y="370" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="8: initiateTransfer(fromAcct, toAcct, amount)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="410" as="sourcePoint" /><mxPoint x="970" y="410" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="23" value="9: debit(fromAcct, amount)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="970" y="450" as="sourcePoint" /><mxPoint x="740" y="450" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="10: debitSuccess" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="740" y="490" as="sourcePoint" /><mxPoint x="970" y="490" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="11: credit(toAcct, amount)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="970" y="530" as="sourcePoint" /><mxPoint x="740" y="530" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="12: creditSuccess" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="740" y="570" as="sourcePoint" /><mxPoint x="970" y="570" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="13: recordTransaction(txn)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=left;verticalAlign=top;rounded=0;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="605" as="sourcePoint" />
+            <mxPoint x="970" y="635" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1060" y="605" />
+              <mxPoint x="1060" y="635" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="14: transferSuccess(txnId)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="970" y="680" as="sourcePoint" /><mxPoint x="300" y="680" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="29" value="15: sendNotification(customer, txnDetails)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="720" as="sourcePoint" /><mxPoint x="1190" y="720" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="30" value="16: notificationSent" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1190" y="760" as="sourcePoint" /><mxPoint x="300" y="760" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="31" value="17: displayConfirmation()" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="800" as="sourcePoint" /><mxPoint x="90" y="800" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page4-sequence-loan" name="4 - Sequence - Loan Application">
+    <mxGraphModel dx="1422" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="Sequence Diagram: Loan Application and Approval (Apply -&gt; Review -&gt; Approve -&gt; Disburse)" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="0" width="1200" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="LoanService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Staff / Manager" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="30" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="AccountService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="950" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="8" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="100" as="sourcePoint" />
+            <mxPoint x="90" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="80" as="sourcePoint" />
+            <mxPoint x="300" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="80" as="sourcePoint" />
+            <mxPoint x="540" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="100" as="sourcePoint" />
+            <mxPoint x="780" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" style="html=1;endArrow=none;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020" y="80" as="sourcePoint" />
+            <mxPoint x="1020" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="13" value="1: submitLoanApplication(amount, term, product, collateral)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="90" y="130" as="sourcePoint" /><mxPoint x="300" y="130" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="2: createLoanApplication(data)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="170" as="sourcePoint" /><mxPoint x="540" y="170" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="3: applicationCreated(status=Pending)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="540" y="210" as="sourcePoint" /><mxPoint x="300" y="210" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="4: showConfirmation(Pending Review)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="250" as="sourcePoint" /><mxPoint x="90" y="250" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="5: openPendingApplications()" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="290" as="sourcePoint" /><mxPoint x="300" y="290" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="6: getPendingLoans()" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="330" as="sourcePoint" /><mxPoint x="540" y="330" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="7: pendingLoansList" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="540" y="370" as="sourcePoint" /><mxPoint x="300" y="370" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="8: displayLoanList()" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="410" as="sourcePoint" /><mxPoint x="780" y="410" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="9: reviewApplication(loanId)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="450" as="sourcePoint" /><mxPoint x="300" y="450" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="10: getLoanDetails(loanId)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="490" as="sourcePoint" /><mxPoint x="540" y="490" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="23" value="11: loanDetails(creditInfo, collateral)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="540" y="530" as="sourcePoint" /><mxPoint x="300" y="530" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="12: showDetailsForDecision()" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="570" as="sourcePoint" /><mxPoint x="780" y="570" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="13: approveLoan(loanId, approvedBy)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="610" as="sourcePoint" /><mxPoint x="300" y="610" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="14: approveLoan(loanId, approvedBy)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="650" as="sourcePoint" /><mxPoint x="540" y="650" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="15: disburse(accountNo, principal)" style="html=1;endArrow=block;endFill=1;fontSize=11;align=center;verticalAlign=bottom;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="540" y="690" as="sourcePoint" /><mxPoint x="1020" y="690" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="16: disbursementSuccess(newBalance)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="730" as="sourcePoint" /><mxPoint x="540" y="730" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="29" value="17: loanApproved(status=Active)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="540" y="770" as="sourcePoint" /><mxPoint x="300" y="770" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="30" value="18: confirmationDisplayed()" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="810" as="sourcePoint" /><mxPoint x="780" y="810" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="31" value="19: notifyLoanApproved(fundsDisbursed)" style="html=1;endArrow=open;dashed=1;fontSize=11;align=center;verticalAlign=bottom;fontColor=#666666;strokeColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="300" y="850" as="sourcePoint" /><mxPoint x="90" y="850" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page5-class" name="5 - Class Diagram">
+    <mxGraphModel dx="1422" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1360" pageHeight="1150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="Alegria Pay - Class Diagram" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="0" width="1200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- User -->
+        <mxCell id="3" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="- id: string&lt;br&gt;- name: string&lt;br&gt;- email: string&lt;br&gt;- password: string&lt;br&gt;- role: string&lt;br&gt;- phone: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="70" width="240" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="+ login()&lt;br&gt;+ logout()&lt;br&gt;+ updateProfile()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="188" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Customer -->
+        <mxCell id="6" value="Customer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="360" y="320" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="- customerId: string&lt;br&gt;- address: string&lt;br&gt;- nationalId: string&lt;br&gt;- branchId: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="350" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="+ openAccount()&lt;br&gt;+ applyForLoan()&lt;br&gt;+ viewTransactionHistory()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="432" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Staff -->
+        <mxCell id="9" value="Staff" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="320" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="- staffId: string&lt;br&gt;- position: string&lt;br&gt;- branchId: string&lt;br&gt;- employeeNo: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="350" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="+ processTransaction()&lt;br&gt;+ approveLoan()&lt;br&gt;+ manageCustomer()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="432" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Branch -->
+        <mxCell id="12" value="Branch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="560" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="- branchId: string&lt;br&gt;- name: string&lt;br&gt;- location: string&lt;br&gt;- code: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="590" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="+ addStaff()&lt;br&gt;+ generateReport()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="672" width="240" height="46" as="geometry" />
+        </mxCell>
+
+        <!-- Account -->
+        <mxCell id="15" value="Account" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="360" y="560" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="- accountNumber: string&lt;br&gt;- type: enum{savings,current,fixed}&lt;br&gt;- balance: number&lt;br&gt;- status: string&lt;br&gt;- customerId: string&lt;br&gt;- branchId: string&lt;br&gt;- openedAt: date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="590" width="240" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="+ deposit(amount)&lt;br&gt;+ withdraw(amount)&lt;br&gt;+ getBalance()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="726" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Transaction -->
+        <mxCell id="18" value="Transaction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="- txnId: string&lt;br&gt;- type: enum{deposit,withdrawal,transfer}&lt;br&gt;- amount: number&lt;br&gt;- fromAccount: string&lt;br&gt;- toAccount: string&lt;br&gt;- timestamp: date&lt;br&gt;- performedBy: string&lt;br&gt;- branchId: string&lt;br&gt;- reference: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="590" width="240" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="+ execute()&lt;br&gt;+ reverse()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="762" width="240" height="46" as="geometry" />
+        </mxCell>
+
+        <!-- Loan -->
+        <mxCell id="21" value="Loan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="680" y="320" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="- loanId: string&lt;br&gt;- customerId: string&lt;br&gt;- productType: string&lt;br&gt;- principal: number&lt;br&gt;- interestRate: number&lt;br&gt;- termMonths: number&lt;br&gt;- status: string&lt;br&gt;- balanceRemaining: number&lt;br&gt;- approvedBy: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="350" width="240" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="+ calculateInterest()&lt;br&gt;+ approve()&lt;br&gt;+ disburse()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="522" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- LoanRepayment -->
+        <mxCell id="24" value="LoanRepayment" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="680" y="650" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="- repaymentId: string&lt;br&gt;- loanId: string&lt;br&gt;- amount: number&lt;br&gt;- date: date&lt;br&gt;- method: string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="680" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="+ process()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="780" width="240" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- CreditCard -->
+        <mxCell id="27" value="CreditCard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="360" y="850" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="- cardId: string&lt;br&gt;- customerId: string&lt;br&gt;- accountId: string&lt;br&gt;- limit: number&lt;br&gt;- availableCredit: number&lt;br&gt;- status: string&lt;br&gt;- expiry: date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="880" width="240" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="+ charge(amount)&lt;br&gt;+ makePayment(amount)&lt;br&gt;+ block()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="1016" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Generalizations -->
+        <mxCell id="30" style="endArrow=block;endFill=0;endSize=16;html=1;rounded=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="6" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" style="endArrow=block;endFill=0;endSize=16;html=1;rounded=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="9" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Associations -->
+        <mxCell id="32" value="registers" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="12" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="employs" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="12" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="hosts" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="12" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="owns" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="6" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="generates" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="15" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="applies for" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="6" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="approves" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="9" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="has" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="21" target="24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="holds" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="6" target="27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="linked to" style="endArrow=none;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="15" target="27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Multiplicity labels -->
+        <mxCell id="42" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="32"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="43" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="32"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="44" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="33"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="45" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="33"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="46" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="34"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="47" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="34"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="48" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="35"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="49" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="35"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="50" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="36"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="51" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="36"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="52" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="37"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="53" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="37"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="54" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="38"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="55" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="38"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="56" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="39"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="57" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="39"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="58" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="40"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="59" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="40"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+        <mxCell id="60" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="41"><mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+        <mxCell id="61" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="41"><mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>

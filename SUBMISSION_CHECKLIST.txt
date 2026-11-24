@@ -1,0 +1,84 @@
+ALEGRIA PAY — SUBMISSION REQUIREMENTS (perfect pack list)
+Course: WUCS305 / WICT405 Software Engineering
+Case Study 6: Banking and Financial Transactions
+Due: Saturday, 12 December 2026 (Google Classroom)
+Presentation: ~10 min + 5 min Q&A (max 8 PowerPoint slides)
+
+================================================================================
+A. WHAT TO PUT IN YOUR ZIP (rename zip with your FIRST NAME)
+================================================================================
+
+1) Documentation / Report (PDF)
+   File ready: docs\Alegria_Pay_SRS_SDS_Report.pdf
+   Also keep HTML/MD sources if you want: docs\Alegria_Pay_SRS_SDS_Report.html / .md
+   BEFORE SUBMITTING: replace [student name / ID] placeholders on the title page.
+
+2) Draw.io file (all diagrams)
+   File ready: diagrams\Alegria_Pay_Diagrams.drawio
+   Pages inside:
+     - Deployment Diagram
+     - Use Case Diagram
+     - Sequence — Transfer Funds
+     - Sequence — Loan Application & Approval
+     - Class Diagram
+
+3) Software (source code AND built/executable form)
+   Folder: software\
+   Include:
+     - all source under software\src\
+     - package.json, index.html, vite.config.js, etc.
+     - software\dist\  (production build already generated)
+   How examiner runs it:
+     cd software
+     npm install
+     npm run preview
+     OR npm run dev
+
+4) PowerPoint slides (maximum 8)
+   File ready: presentation\Alegria_Pay_Presentation.pptx
+   BEFORE SUBMITTING: put your names on slide 1.
+
+Optional but helpful:
+   README.md
+   docs\TESTING.md
+
+================================================================================
+B. REPORT FORMATTING RULES (already applied in the HTML/PDF)
+================================================================================
+- Font: Times New Roman / Calibri, size 12
+- Line spacing: 1.5
+- References: at least 5 APA (report includes 7)
+- Plagiarism: keep ≤ 20% — personalise names, paraphrase if your school scans
+- Group size: 1–3 members
+
+================================================================================
+C. MARKS MAP (180 total per brief)
+================================================================================
+Task 1 SRS document ................ 40
+Task 2 SDS / diagrams .............. 40
+Task 3 Software implementation ..... 60 (functionality + testing)
+Task 4 Oral presentation ........... 40
+(+ Draw.io / software accuracy noted in rubrics)
+
+================================================================================
+D. DEMO LOGINS (for oral presentation)
+================================================================================
+Admin:    admin@alegriapay.gh      / admin123
+Manager:  manager@alegriapay.gh    / manager123
+Teller:   teller@alegriapay.gh     / teller123
+Customer: akosua@email.com         / customer123
+
+Suggested live demo path:
+1. Customer transfer
+2. Manager loan approval
+3. Reports (branch + staff)
+
+================================================================================
+E. FINAL HUMAN STEPS BEFORE UPLOAD
+================================================================================
+[ ] Add your real names & student IDs to PDF title page and PPT slide 1
+[ ] Open Draw.io file once to confirm all 5 tabs load
+[ ] Run npm run preview and click through the demo path
+[ ] Zip: report PDF + drawio + software folder + pptx
+[ ] Rename zip with your first name
+[ ] Upload to Google Classroom
